@@ -1,0 +1,110 @@
+import os
+gpu_list = '0'
+os.environ["CUDA_VISIBLE_DEVICES"] = gpu_list
+import numpy as np
+import math
+import torch
+import torch.nn as nn
+import random
+from model import *
+from thop import profile
+import time
+from ptflops import get_model_complexity_info
+from torchstat import stat
+from einops import rearrange,repeat
+from tqdm import tqdm
+
+cpu_num = 4
+os.environ["OMP_NUM_THREADS"] = str(cpu_num)
+os.environ["MKL_NUM_THREADS"] = str(cpu_num)
+torch.set_num_threads(cpu_num )
+
+
+np.random.seed(1)
+random.seed(1)
+
+batch_size=1
+
+ant_size=32
+car_size=32
+hidden_size=256
+
+depth=8
+
+model=Nlocnet(ant_size=ant_size,car_size=car_size,embed_dim=hidden_size,num_heads=4,hidden_dim=hidden_size,depth=depth)
+
+path_model='/home/chenzirui/Desktop/ALLoc/O1/train40000/Proposed/Scheme'
+path_test_origin='/home/chenzirui/Desktop/home_mnt/32ant*32car_3.5GHz_40MHz_R501-1400_V1_24.4.12/train40000'
+path_test='/home/chenzirui/Desktop/home_mnt/32ant*32car_3.5GHz_40MHz_O1B_R501-1400_V1_24.4.12/train40000'
+
+
+if len(gpu_list.split(',')) > 1:
+    model = torch.nn.DataParallel(model).cuda()
+else:
+    model = model.cuda()
+
+model.load_state_dict(torch.load(path_model+'/model' +'.pth'),strict=False)
+
+test_dataset_origin=DatasetFolder(path_test_origin+'/sequence_test_len64')
+test_loader_origin=torch.utils.data.DataLoader(
+    test_dataset_origin, batch_size=batch_size, shuffle=True, num_workers=4,pin_memory=True, drop_last=True)
+
+test_dataset=DatasetFolder(path_test+'/sequence_test_len64')
+test_loader=torch.utils.data.DataLoader(
+    test_dataset, batch_size=batch_size, shuffle=True, num_workers=4,pin_memory=True, drop_last=True)
+
+sum_rmse = 0
+model.eval()
+for i, (data, local) in tqdm(enumerate(test_loader_origin),total=len(test_loader_origin)):
+    model.train()
+    data = data.cuda().float()
+    data = data * 10000
+    local = local.cuda().float()
+    local = local[:, :, 0:2]
+    data_neigh = data[:, 0:-1, ...]
+    data_current = data[:, -1:, ...]
+    local_neigh = local[:, 0:-1, ...]
+    local_current = local[:, -1:, ...]
+    with torch.no_grad():
+        local_pred = model(data_neigh, local_neigh, data_current)
+    rmse = RMSE(local_pred[:,-1,:], local_current[:,-1,:])
+    sum_rmse+=rmse
+avg_rmse=sum_rmse/(i+1)
+print("avg_distance :",avg_rmse)
+
+sum_rmse = 0
+rmse_distribution_list=[]
+model.eval()
+for i, (data, local) in tqdm(enumerate(test_loader),total=len(test_loader)):
+    model.train()
+    data = data.cuda().float()
+    data = data * 10000
+    local = local.cuda().float()
+    local = local[:, :, 0:2]
+    data_neigh = data[:, 0:-1, ...]
+    data_current = data[:, -1:, ...]
+    local_neigh = local[:, 0:-1, ...]
+    local_current = local[:, -1:, ...]
+    with torch.no_grad():
+        local_pred = model(data_neigh, local_neigh, data_current)
+    rmse = RMSE(local_pred[:,-1,:], local_current[:,-1,:])
+    rmse = rmse.item()
+    rmse_distribution_list.append(rmse)
+    sum_rmse+=rmse
+avg_rmse=sum_rmse/(i+1)
+print("avg_distance :",avg_rmse)
+
+rmse_distribution_list.sort()
+total_len=len(rmse_distribution_list)
+rate=0.2
+print("rate:",rate)
+low_len=int(rate*total_len)
+print("low :",rmse_distribution_list[low_len])
+high_len=int((1-rate)*total_len)
+print("high :",rmse_distribution_list[high_len])
+rate=0.1
+print("rate:",rate)
+low_len=int(rate*total_len)
+print("low :",rmse_distribution_list[low_len])
+high_len=int((1-rate)*total_len)
+print("high :",rmse_distribution_list[high_len])

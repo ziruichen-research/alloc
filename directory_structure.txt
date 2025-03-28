@@ -1,0 +1,677 @@
+.
+├── Data
+│   ├── ALLoc_data_share.tar.gz.part_aa
+│   ├── ALLoc_data_share.tar.gz.part_ab
+│   ├── ALLoc_data_share.tar.gz.part_ac
+│   ├── ALLoc_data_share.tar.gz.part_ad
+│   ├── ALLoc_data_share.tar.gz.part_ae
+│   ├── ALLoc_data_share.tar.gz.part_af
+│   ├── ALLoc_data_share.tar.gz.part_ag
+│   ├── ALLoc_data_share.tar.gz.part_ah
+│   ├── ALLoc_data_share.tar.gz.part_ai
+│   ├── ALLoc_data_share.tar.gz.part_aj
+│   ├── ALLoc_data_share.tar.gz.part_ak
+│   ├── ALLoc_data_share.tar.gz.part_al
+│   └── decompress.sh
+├── directory_structure.txt
+├── MO1
+│   └── train20000
+│       ├── benchmarks
+│       │   ├── AD_CNN
+│       │   │   ├── model.pth
+│       │   │   ├── model.py
+│       │   │   ├── __pycache__
+│       │   │   │   └── model.cpython-39.pyc
+│       │   │   ├── test.py
+│       │   │   └── train.py
+│       │   ├── CNN
+│       │   │   ├── model.pth
+│       │   │   ├── model.py
+│       │   │   ├── __pycache__
+│       │   │   │   └── model.cpython-39.pyc
+│       │   │   ├── test.py
+│       │   │   └── train.py
+│       │   └── MFCNet
+│       │       ├── model.pth
+│       │       ├── model.py
+│       │       ├── __pycache__
+│       │       │   └── model.cpython-39.pyc
+│       │       ├── test.py
+│       │       └── train.py
+│       ├── datadivison
+│       │   ├── datadivision.py
+│       │   ├── datadivision_sequence_notneigh.py
+│       │   ├── datadivision_sequence.py
+│       │   ├── datadivision_test_error_len64_notneigh.py
+│       │   └── datadivision_test_error_len64.py
+│       ├── ICL_discriminative
+│       │   ├── Scheme
+│       │   │   ├── model.pth
+│       │   │   ├── model.py
+│       │   │   ├── __pycache__
+│       │   │   │   ├── model.cpython-36.pyc
+│       │   │   │   └── model.cpython-39.pyc
+│       │   │   ├── test.py
+│       │   │   └── train.py
+│       │   └── Scheme_notneigh
+│       │       ├── model.pth
+│       │       ├── model.py
+│       │       ├── __pycache__
+│       │       │   ├── model.cpython-36.pyc
+│       │       │   └── model.cpython-39.pyc
+│       │       ├── test.py
+│       │       └── train.py
+│       ├── ICL_generative
+│       │   ├── Scheme
+│       │   │   ├── model.pth
+│       │   │   ├── model.py
+│       │   │   ├── __pycache__
+│       │   │   │   ├── model.cpython-36.pyc
+│       │   │   │   └── model.cpython-39.pyc
+│       │   │   ├── test.py
+│       │   │   └── train.py
+│       │   └── Scheme_notneigh
+│       │       ├── model.pth
+│       │       ├── model.py
+│       │       ├── __pycache__
+│       │       │   ├── model.cpython-36.pyc
+│       │       │   └── model.cpython-39.pyc
+│       │       ├── test.py
+│       │       └── train.py
+│       ├── Multi-task_training
+│       │   └── benchmarks
+│       │       └── AD_CNN
+│       │           ├── error_finetuning_array.npy
+│       │           ├── fine-tuning.py
+│       │           ├── model.pth
+│       │           ├── model.py
+│       │           ├── __pycache__
+│       │           │   └── model.cpython-39.pyc
+│       │           └── train.py
+│       ├── Proposed
+│       │   ├── Iterative localization
+│       │   │   ├── build_trace.py
+│       │   │   ├── inferred_local_step1.npy
+│       │   │   ├── inferred_local_step2.npy
+│       │   │   ├── model.py
+│       │   │   ├── __pycache__
+│       │   │   │   └── model.cpython-39.pyc
+│       │   │   ├── test_trace.py
+│       │   │   └── trace_information_errorrange0.npy
+│       │   ├── Scheme
+│       │   │   ├── build_trace.py
+│       │   │   ├── inferred_local_errorrange0.5.npy
+│       │   │   ├── inferred_local_errorrange5.npy
+│       │   │   ├── model.pth
+│       │   │   ├── model.py
+│       │   │   ├── __pycache__
+│       │   │   │   ├── model.cpython-36.pyc
+│       │   │   │   └── model.cpython-39.pyc
+│       │   │   ├── test.py
+│       │   │   ├── test_trace.py
+│       │   │   ├── trace_information_errorrange0.5.npy
+│       │   │   ├── trace_information_errorrange5.npy
+│       │   │   └── train.py
+│       │   └── Scheme_notneigh
+│       │       ├── model.pth
+│       │       ├── model.py
+│       │       ├── __pycache__
+│       │       │   ├── model.cpython-36.pyc
+│       │       │   └── model.cpython-39.pyc
+│       │       ├── test.py
+│       │       ├── test_trace.py
+│       │       ├── train.py
+│       │       └── try.py
+│       └── Scenario-specific_training
+│           └── benchmarks
+│               └── AD_CNN
+│                   ├── error_training_array.npy
+│                   ├── model.pth
+│                   ├── model.py
+│                   ├── __pycache__
+│                   │   └── model.cpython-39.pyc
+│                   └── train.py
+├── multi_scenario.sh
+├── O1
+│   ├── train10000
+│   │   ├── benchmarks
+│   │   │   ├── AD_CNN
+│   │   │   │   ├── model.pth
+│   │   │   │   ├── model.py
+│   │   │   │   ├── __pycache__
+│   │   │   │   │   └── model.cpython-39.pyc
+│   │   │   │   ├── rmse_distribution.npy
+│   │   │   │   ├── test.py
+│   │   │   │   └── train.py
+│   │   │   ├── CNN
+│   │   │   │   ├── model.pth
+│   │   │   │   ├── model.py
+│   │   │   │   ├── __pycache__
+│   │   │   │   │   └── model.cpython-39.pyc
+│   │   │   │   ├── rmse_distribution.npy
+│   │   │   │   ├── test.py
+│   │   │   │   └── train.py
+│   │   │   └── MFCNet
+│   │   │       ├── model.pth
+│   │   │       ├── model.py
+│   │   │       ├── __pycache__
+│   │   │       │   └── model.cpython-39.pyc
+│   │   │       ├── rmse_distribution.npy
+│   │   │       ├── test.py
+│   │   │       └── train.py
+│   │   ├── datadivision
+│   │   │   ├── datadivision.py
+│   │   │   ├── datadivision_sequence_notneigh.py
+│   │   │   ├── datadivision_sequence.py
+│   │   │   ├── datadivision_test_error_len64_notneigh.py
+│   │   │   └── datadivision_test_error_len64.py
+│   │   ├── ICL_discriminative
+│   │   │   ├── Scheme
+│   │   │   │   ├── model.pth
+│   │   │   │   ├── model.py
+│   │   │   │   ├── __pycache__
+│   │   │   │   │   ├── model.cpython-36.pyc
+│   │   │   │   │   └── model.cpython-39.pyc
+│   │   │   │   ├── rmse_distribution.npy
+│   │   │   │   ├── test.py
+│   │   │   │   └── train.py
+│   │   │   └── Scheme_notneigh
+│   │   │       ├── model.pth
+│   │   │       ├── model.py
+│   │   │       ├── __pycache__
+│   │   │       │   ├── model.cpython-36.pyc
+│   │   │       │   └── model.cpython-39.pyc
+│   │   │       ├── rmse_distribution.npy
+│   │   │       ├── test.py
+│   │   │       └── train.py
+│   │   ├── ICL_generative
+│   │   │   ├── Scheme
+│   │   │   │   ├── model.pth
+│   │   │   │   ├── model.py
+│   │   │   │   ├── __pycache__
+│   │   │   │   │   ├── model.cpython-36.pyc
+│   │   │   │   │   └── model.cpython-39.pyc
+│   │   │   │   ├── rmse_distribution.npy
+│   │   │   │   ├── test.py
+│   │   │   │   └── train.py
+│   │   │   └── Scheme_notneigh
+│   │   │       ├── model.pth
+│   │   │       ├── model.py
+│   │   │       ├── __pycache__
+│   │   │       │   ├── model.cpython-36.pyc
+│   │   │       │   └── model.cpython-39.pyc
+│   │   │       ├── rmse_distribution.npy
+│   │   │       ├── test.py
+│   │   │       └── train.py
+│   │   └── Proposed
+│   │       ├── Iterative localization
+│   │       │   ├── model.py
+│   │       │   ├── __pycache__
+│   │       │   │   └── model.cpython-39.pyc
+│   │       │   ├── rmse_distribution.npy
+│   │       │   └── test.py
+│   │       ├── Scheme
+│   │       │   ├── model.pth
+│   │       │   ├── model.py
+│   │       │   ├── __pycache__
+│   │       │   │   └── model.cpython-39.pyc
+│   │       │   ├── rmse_distribution.npy
+│   │       │   ├── test_initiallocal_noise.py
+│   │       │   ├── test_neighlen.py
+│   │       │   ├── test.py
+│   │       │   └── train.py
+│   │       └── Scheme_notneigh
+│   │           ├── model.pth
+│   │           ├── model.py
+│   │           ├── __pycache__
+│   │           │   └── model.cpython-39.pyc
+│   │           ├── rmse_distribution.npy
+│   │           ├── test.py
+│   │           └── train.py
+│   ├── train20000
+│   │   ├── benchmarks
+│   │   │   ├── AD_CNN
+│   │   │   │   ├── model.pth
+│   │   │   │   ├── model.py
+│   │   │   │   ├── __pycache__
+│   │   │   │   │   └── model.cpython-39.pyc
+│   │   │   │   ├── rmse_distribution.npy
+│   │   │   │   ├── test.py
+│   │   │   │   └── train.py
+│   │   │   ├── CNN
+│   │   │   │   ├── model.pth
+│   │   │   │   ├── model.py
+│   │   │   │   ├── __pycache__
+│   │   │   │   │   └── model.cpython-39.pyc
+│   │   │   │   ├── rmse_distribution.npy
+│   │   │   │   ├── test.py
+│   │   │   │   └── train.py
+│   │   │   └── MFCNet
+│   │   │       ├── model.pth
+│   │   │       ├── model.py
+│   │   │       ├── __pycache__
+│   │   │       │   └── model.cpython-39.pyc
+│   │   │       ├── rmse_distribution.npy
+│   │   │       ├── test.py
+│   │   │       └── train.py
+│   │   ├── datadivision
+│   │   │   ├── datadivision.py
+│   │   │   ├── datadivision_sequence_notneigh.py
+│   │   │   ├── datadivision_sequence.py
+│   │   │   ├── datadivision_test_error_len64_notneigh.py
+│   │   │   └── datadivision_test_error_len64.py
+│   │   ├── ICL_discriminative
+│   │   │   ├── Scheme
+│   │   │   │   ├── model.pth
+│   │   │   │   ├── model.py
+│   │   │   │   ├── __pycache__
+│   │   │   │   │   ├── model.cpython-36.pyc
+│   │   │   │   │   └── model.cpython-39.pyc
+│   │   │   │   ├── rmse_distribution.npy
+│   │   │   │   ├── test.py
+│   │   │   │   └── train.py
+│   │   │   └── Scheme_notneigh
+│   │   │       ├── model.pth
+│   │   │       ├── model.py
+│   │   │       ├── __pycache__
+│   │   │       │   ├── model.cpython-36.pyc
+│   │   │       │   └── model.cpython-39.pyc
+│   │   │       ├── rmse_distribution.npy
+│   │   │       ├── test.py
+│   │   │       └── train.py
+│   │   ├── ICL_generative
+│   │   │   ├── Scheme
+│   │   │   │   ├── model.pth
+│   │   │   │   ├── model.py
+│   │   │   │   ├── __pycache__
+│   │   │   │   │   ├── model.cpython-36.pyc
+│   │   │   │   │   └── model.cpython-39.pyc
+│   │   │   │   ├── rmse_distribution.npy
+│   │   │   │   ├── test.py
+│   │   │   │   └── train.py
+│   │   │   └── Scheme_notneigh
+│   │   │       ├── model.pth
+│   │   │       ├── model.py
+│   │   │       ├── __pycache__
+│   │   │       │   ├── model.cpython-36.pyc
+│   │   │       │   └── model.cpython-39.pyc
+│   │   │       ├── rmse_distribution.npy
+│   │   │       ├── test.py
+│   │   │       └── train.py
+│   │   └── Proposed
+│   │       ├── Iterative localization
+│   │       │   ├── model.py
+│   │       │   ├── __pycache__
+│   │       │   │   └── model.cpython-39.pyc
+│   │       │   ├── rmse_distribution.npy
+│   │       │   └── test.py
+│   │       ├── Scheme
+│   │       │   ├── model.pth
+│   │       │   ├── model.py
+│   │       │   ├── __pycache__
+│   │       │   │   └── model.cpython-39.pyc
+│   │       │   ├── rmse_distribution.npy
+│   │       │   ├── test_initiallocal_noise.py
+│   │       │   ├── test_neighlen.py
+│   │       │   ├── test.py
+│   │       │   └── train.py
+│   │       └── Scheme_notneigh
+│   │           ├── model.pth
+│   │           ├── model.py
+│   │           ├── __pycache__
+│   │           │   └── model.cpython-39.pyc
+│   │           ├── rmse_distribution.npy
+│   │           ├── test.py
+│   │           └── train.py
+│   └── train40000
+│       ├── benchmarks
+│       │   ├── AD_CNN
+│       │   │   ├── model.pth
+│       │   │   ├── model.py
+│       │   │   ├── __pycache__
+│       │   │   │   └── model.cpython-39.pyc
+│       │   │   ├── rmse_distribution.npy
+│       │   │   ├── test_channelnoise_sqrt10.py
+│       │   │   ├── test.py
+│       │   │   └── train.py
+│       │   ├── CNN
+│       │   │   ├── model.pth
+│       │   │   ├── model.py
+│       │   │   ├── __pycache__
+│       │   │   │   └── model.cpython-39.pyc
+│       │   │   ├── rmse_distribution.npy
+│       │   │   ├── test_channelnoise_sqrt10.py
+│       │   │   ├── test.py
+│       │   │   └── train.py
+│       │   └── MFCNet
+│       │       ├── model.pth
+│       │       ├── model.py
+│       │       ├── __pycache__
+│       │       │   └── model.cpython-39.pyc
+│       │       ├── rmse_distribution.npy
+│       │       ├── test_channelnoise_sqrt10.py
+│       │       ├── test.py
+│       │       └── train.py
+│       ├── datadivision
+│       │   ├── datadivision.py
+│       │   ├── datadivision_sequence_notneigh.py
+│       │   ├── datadivision_sequence.py
+│       │   ├── datadivision_test_error_len64_notneigh.py
+│       │   └── datadivision_test_error_len64.py
+│       ├── ICL_discriminative
+│       │   ├── Scheme
+│       │   │   ├── model.pth
+│       │   │   ├── model.py
+│       │   │   ├── __pycache__
+│       │   │   │   ├── model.cpython-36.pyc
+│       │   │   │   └── model.cpython-39.pyc
+│       │   │   ├── rmse_distribution.npy
+│       │   │   ├── test_neighlen.py
+│       │   │   ├── test.py
+│       │   │   └── train.py
+│       │   └── Scheme_notneigh
+│       │       ├── model.pth
+│       │       ├── model.py
+│       │       ├── __pycache__
+│       │       │   ├── model.cpython-36.pyc
+│       │       │   └── model.cpython-39.pyc
+│       │       ├── rmse_distribution.npy
+│       │       ├── test_neighlen.py
+│       │       ├── test.py
+│       │       └── train.py
+│       ├── ICL_generative
+│       │   ├── Scheme
+│       │   │   ├── model.pth
+│       │   │   ├── model.py
+│       │   │   ├── __pycache__
+│       │   │   │   ├── model.cpython-36.pyc
+│       │   │   │   └── model.cpython-39.pyc
+│       │   │   ├── rmse_distribution.npy
+│       │   │   ├── test_neighlen.py
+│       │   │   ├── test.py
+│       │   │   └── train.py
+│       │   └── Scheme_notneigh
+│       │       ├── model.pth
+│       │       ├── model.py
+│       │       ├── __pycache__
+│       │       │   ├── model.cpython-36.pyc
+│       │       │   └── model.cpython-39.pyc
+│       │       ├── rmse_distribution.npy
+│       │       ├── test_neighlen.py
+│       │       ├── test.py
+│       │       └── train.py
+│       └── Proposed
+│           ├── Iterative localization
+│           │   ├── model.py
+│           │   ├── __pycache__
+│           │   │   └── model.cpython-39.pyc
+│           │   ├── rmse_distribution.npy
+│           │   └── test.py
+│           ├── Scheme
+│           │   ├── model.pth
+│           │   ├── model.py
+│           │   ├── __pycache__
+│           │   │   ├── model.cpython-36.pyc
+│           │   │   └── model.cpython-39.pyc
+│           │   ├── rmse_distribution.npy
+│           │   ├── test_channelnoise_sqrt10.py
+│           │   ├── test_initiallocal_noise.py
+│           │   ├── test_neighlen.py
+│           │   ├── test.py
+│           │   ├── train.py
+│           │   └── try.py
+│           └── Scheme_notneigh
+│               ├── model.pth
+│               ├── model.py
+│               ├── __pycache__
+│               │   └── model.cpython-39.pyc
+│               ├── rmse_distribution.npy
+│               ├── test.py
+│               └── train.py
+├── O1B
+│   ├── train10000
+│   │   ├── benchmarks
+│   │   │   ├── AD_CNN
+│   │   │   │   ├── model.pth
+│   │   │   │   ├── model.py
+│   │   │   │   ├── __pycache__
+│   │   │   │   │   └── model.cpython-39.pyc
+│   │   │   │   ├── rmse_distribution.npy
+│   │   │   │   ├── test.py
+│   │   │   │   └── train.py
+│   │   │   ├── CNN
+│   │   │   │   ├── model.pth
+│   │   │   │   ├── model.py
+│   │   │   │   ├── __pycache__
+│   │   │   │   │   └── model.cpython-39.pyc
+│   │   │   │   ├── rmse_distribution.npy
+│   │   │   │   ├── test.py
+│   │   │   │   └── train.py
+│   │   │   └── MFCNet
+│   │   │       ├── model.pth
+│   │   │       ├── model.py
+│   │   │       ├── __pycache__
+│   │   │       │   └── model.cpython-39.pyc
+│   │   │       ├── rmse_distribution.npy
+│   │   │       ├── test.py
+│   │   │       └── train.py
+│   │   ├── datadivision
+│   │   │   ├── datadivision.py
+│   │   │   ├── datadivision_sequence.py
+│   │   │   └── datadivision_test_error_len64.py
+│   │   └── Proposed
+│   │       └── Scheme
+│   │           ├── model.pth
+│   │           ├── model.py
+│   │           ├── __pycache__
+│   │           │   └── model.cpython-39.pyc
+│   │           ├── rmse_distribution.npy
+│   │           ├── test.py
+│   │           └── train.py
+│   ├── train20000
+│   │   ├── benchmarks
+│   │   │   ├── AD_CNN
+│   │   │   │   ├── model.pth
+│   │   │   │   ├── model.py
+│   │   │   │   ├── __pycache__
+│   │   │   │   │   └── model.cpython-39.pyc
+│   │   │   │   ├── rmse_distribution.npy
+│   │   │   │   ├── test.py
+│   │   │   │   └── train.py
+│   │   │   ├── CNN
+│   │   │   │   ├── model.pth
+│   │   │   │   ├── model.py
+│   │   │   │   ├── __pycache__
+│   │   │   │   │   └── model.cpython-39.pyc
+│   │   │   │   ├── rmse_distribution.npy
+│   │   │   │   ├── test.py
+│   │   │   │   └── train.py
+│   │   │   └── MFCNet
+│   │   │       ├── model.pth
+│   │   │       ├── model.py
+│   │   │       ├── __pycache__
+│   │   │       │   └── model.cpython-39.pyc
+│   │   │       ├── rmse_distribution.npy
+│   │   │       ├── test.py
+│   │   │       └── train.py
+│   │   ├── datadivision
+│   │   │   ├── datadivision.py
+│   │   │   ├── datadivision_sequence.py
+│   │   │   └── datadivision_test_error_len64.py
+│   │   └── Proposed
+│   │       └── Scheme
+│   │           ├── model.pth
+│   │           ├── model.py
+│   │           ├── __pycache__
+│   │           │   └── model.cpython-39.pyc
+│   │           ├── rmse_distribution.npy
+│   │           ├── test.py
+│   │           └── train.py
+│   └── train40000
+│       ├── benchmarks
+│       │   ├── AD_CNN
+│       │   │   ├── model.pth
+│       │   │   ├── model.py
+│       │   │   ├── __pycache__
+│       │   │   │   └── model.cpython-39.pyc
+│       │   │   ├── rmse_distribution.npy
+│       │   │   ├── test.py
+│       │   │   └── train.py
+│       │   ├── CNN
+│       │   │   ├── model.pth
+│       │   │   ├── model.py
+│       │   │   ├── __pycache__
+│       │   │   │   └── model.cpython-39.pyc
+│       │   │   ├── rmse_distribution.npy
+│       │   │   ├── test.py
+│       │   │   └── train.py
+│       │   └── MFCNet
+│       │       ├── model.pth
+│       │       ├── model.py
+│       │       ├── __pycache__
+│       │       │   └── model.cpython-39.pyc
+│       │       ├── rmse_distribution.npy
+│       │       ├── test.py
+│       │       └── train.py
+│       ├── datadivision
+│       │   ├── datadivision.py
+│       │   ├── datadivision_sequence_notneigh.py
+│       │   ├── datadivision_sequence.py
+│       │   ├── datadivision_test_error_len64_notneigh.py
+│       │   └── datadivision_test_error_len64.py
+│       ├── ICL_discriminative
+│       │   └── Scheme
+│       │       ├── model.pth
+│       │       ├── model.py
+│       │       ├── __pycache__
+│       │       │   ├── model.cpython-36.pyc
+│       │       │   └── model.cpython-39.pyc
+│       │       ├── rmse_distribution.npy
+│       │       ├── test.py
+│       │       └── train.py
+│       ├── ICL_generative
+│       │   └── Scheme
+│       │       ├── model.pth
+│       │       ├── model.py
+│       │       ├── __pycache__
+│       │       │   ├── model.cpython-36.pyc
+│       │       │   └── model.cpython-39.pyc
+│       │       ├── rmse_distribution.npy
+│       │       ├── test.py
+│       │       └── train.py
+│       └── Proposed
+│           └── Scheme
+│               ├── model.pth
+│               ├── model.py
+│               ├── __pycache__
+│               │   └── model.cpython-39.pyc
+│               ├── rmse_distribution.npy
+│               ├── test.py
+│               └── train.py
+├── pathchange.sh
+├── readme.md
+├── requirements.txt
+├── single_scenario_O1B.sh
+├── single_scenario_O1.sh
+├── transfer_O1Bmodel_to_O1test
+│   └── train40000
+│       ├── benchmarks
+│       │   └── AD_CNN
+│       │       ├── direct_test
+│       │       │   ├── model.py
+│       │       │   └── test.py
+│       │       ├── __pycache__
+│       │       │   └── model.cpython-39.pyc
+│       │       └── transfer_learning_1e-4
+│       │           ├── error_array.npy
+│       │           ├── error_origin_array.npy
+│       │           ├── fine-tuning.py
+│       │           ├── model.py
+│       │           └── __pycache__
+│       │               └── model.cpython-39.pyc
+│       ├── ICL_discriminative
+│       │   └── Scheme
+│       │       ├── direct_test
+│       │       │   ├── model.py
+│       │       │   ├── __pycache__
+│       │       │   │   └── model.cpython-39.pyc
+│       │       │   └── test.py
+│       │       └── __pycache__
+│       │           └── model.cpython-39.pyc
+│       ├── ICL_generative
+│       │   └── Scheme
+│       │       ├── direct_test
+│       │       │   ├── model.py
+│       │       │   ├── __pycache__
+│       │       │   │   └── model.cpython-39.pyc
+│       │       │   └── test.py
+│       │       └── __pycache__
+│       │           └── model.cpython-39.pyc
+│       └── Proposed
+│           └── Scheme
+│               ├── direct_test
+│               │   ├── model.py
+│               │   ├── __pycache__
+│               │   │   └── model.cpython-39.pyc
+│               │   └── test.py
+│               ├── __pycache__
+│               │   └── model.cpython-39.pyc
+│               └── transfer_learning_lr1e-4
+│                   ├── error_array.npy
+│                   ├── error_origin_array.npy
+│                   ├── fine-tuning.py
+│                   ├── model.py
+│                   └── __pycache__
+│                       └── model.cpython-39.pyc
+└── transfer_O1model_to_O1Btest
+    └── train40000
+        ├── benchmarks
+        │   └── AD_CNN
+        │       ├── direct_test
+        │       │   ├── model.py
+        │       │   └── test.py
+        │       ├── __pycache__
+        │       │   └── model.cpython-39.pyc
+        │       └── transfer_learning_1e-4
+        │           ├── error_array.npy
+        │           ├── error_origin_array.npy
+        │           ├── fine-tuning.py
+        │           ├── model.py
+        │           └── __pycache__
+        │               └── model.cpython-39.pyc
+        ├── ICL_discriminative
+        │   └── Scheme
+        │       ├── direct_test
+        │       │   ├── model.py
+        │       │   ├── __pycache__
+        │       │   │   └── model.cpython-39.pyc
+        │       │   └── test.py
+        │       └── __pycache__
+        │           └── model.cpython-39.pyc
+        ├── ICL_generative
+        │   └── Scheme
+        │       ├── direct_test
+        │       │   ├── model.py
+        │       │   ├── __pycache__
+        │       │   │   └── model.cpython-39.pyc
+        │       │   └── test.py
+        │       └── __pycache__
+        │           └── model.cpython-39.pyc
+        └── Proposed
+            └── Scheme
+                ├── direct_test
+                │   ├── model.py
+                │   ├── __pycache__
+                │   │   └── model.cpython-39.pyc
+                │   └── test.py
+                ├── __pycache__
+                │   └── model.cpython-39.pyc
+                └── transfer_learning_lr1e-4
+                    ├── error_array.npy
+                    ├── error_origin_array.npy
+                    ├── fine-tuning.py
+                    ├── model.py
+                    └── __pycache__
+                        └── model.cpython-39.pyc
+
+208 directories, 466 files
