@@ -6,11 +6,40 @@ Zirui Chen, Zhaoyang Zhang, Ziqing Xing, Ridong Li and Zhaohui Yang
 
 This repository is the official implementation of paper `Analogical Learning for Cross-Scenario Generalization: Framework and Application to Wireless Localization`. All experimental results presented in this paper can be reproduced using this project. 
 
+### Overview of this work
+
+This work proposes a new framework called ***Analogical Learning*** (AL). It enables direct adaptation to diverse scattering environments and system configurations without requiring additional training, offering a new technical system with cross-scenario generalization for intelligent wireless localization and various other wireless AI tasks. This breakthrough stems from a key insight into the relativity of numerical feature representations: isolated numerical values generally cannot convey complete meaning unless combined with corresponding reference frame information. The lack of ability to aware reference system information restricts existing wireless AI methods (e.g., data-to-label learning) to generalizing only within specific underlying reference systems, resulting in poor cross-scenario reusability and high sensitivity to dynamic environmental changes.
+
+Therefore, to complement reference frame information, AL first embeds known data-label pairs from the current scenario as reference objects in the training and inference process, resembling the in-context learning (ICL) in the expression form. The most notable innovation lies in the development of ***Mateformer***, inspired by the insight of relativity. This network designs an advanced multi-layer analogical mechanism, enabling the interpretation of feature information through multi-space relativity and fully leveraging reference frame information. The application of AL to wireless localization demonstrates its superiority: it achieves **state-of-the-art accuracy**, **stable transferability**, and **seamless adaptation to new scenarios without any tuning**, outperforming conventional methods by nearly two orders of magnitude in precision. This expansion of wireless intelligence in multi-scenario dimension marks an important step toward [wireless big AI models](https://ieeexplore.ieee.org/document/10579546).
+
+
+
+### Main results
+
+<div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px;">
+  <figure style="text-align: center;">
+    <img src="./Figs/O1_error_various_scheme.svg" alt="Figure 1" style="width:100%;">
+    <figcaption style="text-align: center;">Performance under a single scenario</figcaption>
+  </figure>
+  <figure style="text-align: center;">
+    <img src="./Figs/O1toO1B_error_various_scheme.svg" alt="Figure 2" style="width:100%;">
+    <figcaption style="text-align: center;">Performance of direct cross-scenario reuse</figcaption>
+  </figure>
+  <figure style="text-align: center;">
+    <img src="./Figs/multiscenaro_trainon1245&3_error_various_scheme.svg" alt="Figure 3" style="width:100%;">
+    <figcaption style="text-align: center;">Performance of multi-scenario joint learning and new scenario generalization</figcaption>
+  </figure>
+  <figure style="text-align: center;">
+    <img src="./Figs/Pretraining&tuning_error.svg" alt="Figure 4" style="width:100%;">
+    <figcaption style="text-align: center;">Performance comparisons between ALLoc and conventional new scenario tuning/training</figcaption>
+  </figure>
+</div>
+
 ### Usages
 
 #### Environment requirements
 
-To ensure dataset partitioning and expansion, approximately 1TB of storage space is required. We train the Mateformer on the NVIDIA Hopper architecture, requiring around 50GB of GPU memory (both the model and data are based on float32). If the device has insufficient memory, the `batch_size` parameter in the code can be appropriately reduced (default `batch_size=500`).
+To ensure dataset partitioning and expansion, approximately 1TB of storage space is required. We train the Mateformer on the Nvidia Hopper architecture, requiring around 50GB of GPU memory (both the model and data are based on float32). If the device has insufficient memory, the `batch_size` parameter in the code can be appropriately reduced (default `batch_size=500`).
 For detailed library dependencies, please refer to `requirements.txt`.
 
 #### Dataset
@@ -21,7 +50,7 @@ This work is based on the [DeepMIMO dataset](https://arxiv.org/abs/1902.06435) (
 
 *Baidu Netdisk*: https://pan.baidu.com/s/11v5ZAaIlNzta3aD7axZpbQ?pwd=f7a4
 
-After downloading the data, please place these compressed files in the `ALLoc` folder (as a `/Data` subfolder), and run `bash decompress.sh` inside the `/Data` subfolder to decompress them.
+After downloading the data, please place these compressed files in the `ALLoc_share` folder (as a `/Data` subfolder), and run `bash decompress.sh` inside the `/Data` subfolder to decompress them.
 
 #### Training and Testing
 
@@ -38,7 +67,6 @@ Before running the code, it is needed to replace the file and data paths from ou
 To complete data generation, training, and testing of ALLoc in O1 scenario (with 40,000 training data), simply run `bash single_scenario_O1.sh`. 
 
 In `single_scenario_O1.sh`:
-
 - `datadivision.py` is used to randomly choice a subset from the original channel-location pairs of DeepMIMO as the training and testing datasets for the localization task.
 - `datadivision_sequence.py` is used to construct the neighborhood sampling sequence for each sample based on the channel-location pairs in the training set.
 - `datadivision_test_error_len64.py` is used to search the training set for neighborhood sampling sequences required for inference on the test set samples, leveraging coarse location information.
@@ -52,4 +80,16 @@ After running `single_scenario_O1.sh`, you can proceed with cross-scenario perfo
 
 To complete data generation, training, and testing of ALLoc in MO1 scenario, simply run `bash multi_scenario.sh`. The code logic in this script is nearly consistent with `single_scenario_O1.sh`, except that the specific `.py` files include data from five scenarios.
 
-For other parts of training and testing, you can infer the process from the file names. When running these scripts, please use the respective subdirectory as the working directory instead of the entire `ALLoc` directory.
+For other parts of training and testing, you can infer the process from the file names. When running these scripts, please use the respective subdirectory as the working directory instead of the entire `ALLoc_share` directory.
+
+### Citation
+
+If you find this work useful in your research, please consider citing us:
+
+```
+
+```
+
+### Contact information
+
+For help or issues using ALLoc, please submit a GitHub issue. For personal communication related to AL, please contact Zirui Chen ([ziruichen@zju.edu.cn](mailto:ziruichen@zju.edu.cn)) or Zhaoyang Zhang (ning_ming@zju.edu.cn).
