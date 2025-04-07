@@ -16,24 +16,29 @@ Therefore, to complement reference frame information, AL first embeds known data
 
 ### Main results
 
-<div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px;">
-  <figure style="text-align: center;">
-    <img src="./Figs/O1_error_various_scheme.svg" alt="Figure 1" style="width:100%;">
-    <figcaption style="text-align: center;">Performance under a single scenario</figcaption>
-  </figure>
-  <figure style="text-align: center;">
-    <img src="./Figs/O1toO1B_error_various_scheme.svg" alt="Figure 2" style="width:100%;">
-    <figcaption style="text-align: center;">Performance of direct cross-scenario reuse</figcaption>
-  </figure>
-  <figure style="text-align: center;">
-    <img src="./Figs/multiscenaro_trainon1245&3_error_various_scheme.svg" alt="Figure 3" style="width:100%;">
-    <figcaption style="text-align: center;">Performance of multi-scenario joint learning and new scenario generalization</figcaption>
-  </figure>
-  <figure style="text-align: center;">
-    <img src="./Figs/Pretraining&tuning_error.svg" alt="Figure 4" style="width:100%;">
-    <figcaption style="text-align: center;">Performance comparisons between ALLoc and conventional new scenario tuning/training</figcaption>
-  </figure>
-</div>
+<table>
+  <tr>
+    <td align="center">
+      <img src="./Figs/O1_error_various_scheme.svg" width="350px"><br>
+      <sub>Performance under a single scenario</sub>
+    </td>
+    <td align="center">
+      <img src="./Figs/O1toO1B_error_various_scheme.svg" width="350px"><br>
+      <sub>Performance of direct cross-scenario reuse</sub>
+    </td>
+  </tr>
+  <tr>
+    <td align="center">
+      <img src="./Figs/multiscenaro_trainon1245&3_error_various_scheme.svg" width="350px"><br>
+      <sub>Performance of multi-scenario joint learning and new scenario generalization</sub>
+    </td>
+    <td align="center">
+      <img src="./Figs/Pretraining&tuning_error.svg" width="350px"><br>
+      <sub>Performance comparisons between ALLoc and conventional new scenario tuning/training</sub>
+    </td>
+  </tr>
+</table>
+
 
 ### Usages
 
