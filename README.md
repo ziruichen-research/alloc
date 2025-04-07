@@ -4,7 +4,7 @@ Zirui Chen, Zhaoyang Zhang, Ziqing Xing, Ridong Li, Zhaohui Yang, Richeng Jin, C
 
 ------
 
-This repository is the official implementation of paper `Analogical Learning for Cross-Scenario Generalization: Framework and Application to Wireless Localization`. All experimental results presented in this paper can be reproduced using this project. 
+This repository is the official implementation of paper `Analogical Learning for Cross-Scenario Generalization: Framework and Application to Intelligent Localization`. All experimental results presented in this paper can be reproduced using this project. 
 
 ### Overview of this work
 
