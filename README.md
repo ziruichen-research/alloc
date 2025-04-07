@@ -1,6 +1,6 @@
 ## Analogical Learning-Based Wireless Localization (ALLoc)
 
-Zirui Chen, Zhaoyang Zhang, Ziqing Xing, Ridong Li and Zhaohui Yang
+Zirui Chen, Zhaoyang Zhang, Ziqing Xing, Ridong Li, Zhaohui Yang, Richeng Jin, Chongwen Huang, Yuzhi Yang and Mérouane Debbah
 
 ------
 
