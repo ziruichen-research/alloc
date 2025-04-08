@@ -85,7 +85,7 @@ After running `single_scenario_O1.sh`, you can proceed with cross-scenario perfo
 
 To complete data generation, training, and testing of ALLoc in MO1 scenario, simply run `bash multi_scenario.sh`. The code logic in this script is nearly consistent with `single_scenario_O1.sh`, except that the specific `.py` files include data from five scenarios.
 
-For other parts of training and testing, you can infer the process from the file names. When running these scripts, please use the respective subdirectory as the working directory instead of the entire `ALLoc_share` directory.
+For other parts of training and testing, you can infer the process from the file names. When running these scripts, please use the respective subdirectory as the working directory instead of the entire `ALLoc` directory.
 
 ### Citation
 
