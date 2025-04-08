@@ -55,7 +55,7 @@ This work is based on the [DeepMIMO dataset](https://arxiv.org/abs/1902.06435) (
 
 *Baidu Netdisk*: https://pan.baidu.com/s/11v5ZAaIlNzta3aD7axZpbQ?pwd=f7a4
 
-After downloading the data, please place these compressed files in the `ALLoc_share` folder (as a `/Data` subfolder), and run `bash decompress.sh` inside the `/Data` subfolder to decompress them.
+After downloading the data, please place these compressed files in the `ALLoc` folder (as a `/Data` subfolder), and run `bash decompress.sh` inside the `/Data` subfolder to decompress them.
 
 #### Training and Testing
 
