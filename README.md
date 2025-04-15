@@ -4,7 +4,7 @@ Zirui Chen, Zhaoyang Zhang, Ziqing Xing, Ridong Li, Zhaohui Yang, Richeng Jin, C
 
 ------
 
-This repository is the official implementation of paper `Analogical Learning for Cross-Scenario Generalization: Framework and Application to Intelligent Localization`. All experimental results presented in this paper can be reproduced using this project. 
+This repository is the official implementation of paper [Analogical Learning for Cross-Scenario Generalization: Framework and Application to Intelligent Localization](https://arxiv.org/abs/2504.08811). All experimental results presented in this paper can be reproduced using this project. 
 
 ### Overview of this work
 
@@ -92,7 +92,12 @@ For other parts of training and testing, you can infer the process from the file
 If you find this work useful in your research, please consider citing us:
 
 ```
-
+@article{chen2025AL,
+  title={Analogical Learning for Cross-Scenario Generalization: Framework and Application to Intelligent Localization},
+  author={Chen, Zirui and Zhang, Zhaoyang and Xing, Ziqing and Li, Ridong and Yang, Zhaohui and Jin, Richeng and Huang, Chongwen and Yang, Yuzhi and Debbah, Mérouane},
+  journal={arXiv preprint arXiv:2504.08811},
+  year={2025}
+}
 ```
 
 ### Contact information
