@@ -53,7 +53,7 @@ This work is based on the [DeepMIMO dataset](https://arxiv.org/abs/1902.06435) (
 
 *Google Driven*: https://drive.google.com/drive/folders/1xSo7-liilx3idr70h8hBdGOeegGFXRHO?usp=drive_link
 
-*Baidu Netdisk*: https://pan.baidu.com/s/11v5ZAaIlNzta3aD7axZpbQ?pwd=f7a4
+*Baidu Netdisk*: https://pan.baidu.com/s/1W2Y6T9c_5RcWbDGFPfKCdA
 
 After downloading the data, please place these compressed files in the `ALLoc` folder (as a `/Data` subfolder), and run `bash decompress.sh` inside the `/Data` subfolder to decompress them.
 
